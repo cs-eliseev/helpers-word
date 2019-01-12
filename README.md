@@ -7,12 +7,20 @@ Below you will find some information on how to init library and perform common c
 
 You can find the most recent version of this project [here](https://github.com/cs-eliseev/helpers-word).
 
-# Install
+## Install
 
 ### Composer
 
 Execute the following command to get the latest version of the package:
->composer require cs-eliseev/browse
+>composer require cse/helpers/word
+
+Or file composer.json should include the following contents:
+`{
+    "require": {
+        "cse/helpers/word": "*"
+    }
+}
+`
 
 ### Git
 
@@ -20,6 +28,6 @@ Clone this repository locally:
 >git clone git@github.com:cs-eliseev/helpers-word.git
 
 
-#License
+##License
 
 See the `[LICENSE.md](https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md)` file for licensing details.
