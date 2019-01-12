@@ -12,7 +12,9 @@ You can find the most recent version of this project [here](https://github.com/c
 ### Composer
 
 Execute the following command to get the latest version of the package:
-```composer require cse/helpers/word```
+```
+composer require cse/helpers/word
+```
 
 Or file composer.json should include the following contents:
 ```
@@ -26,7 +28,9 @@ Or file composer.json should include the following contents:
 ### Git
 
 Clone this repository locally:
-```git clone https://github.com/cs-eliseev/helpers-word.git```
+```
+git clone https://github.com/cs-eliseev/helpers-word.git
+// ```
 
 
 ## License
