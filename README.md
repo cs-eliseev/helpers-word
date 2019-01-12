@@ -15,19 +15,20 @@ Execute the following command to get the latest version of the package:
 >composer require cse/helpers/word
 
 Or file composer.json should include the following contents:
-`{
+```
+{
     "require": {
         "cse/helpers/word": "*"
     }
 }
-`
+```
 
 ### Git
 
 Clone this repository locally:
->git clone git@github.com:cs-eliseev/helpers-word.git
+>git clone https://github.com/cs-eliseev/helpers-word.git
 
 
 ##License
 
-See the `[LICENSE.md](https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md)` file for licensing details.
+See the [LICENSE.md](https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md) file for licensing details.
