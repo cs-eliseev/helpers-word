@@ -30,7 +30,7 @@ Or file composer.json should include the following contents:
 Clone this repository locally:
 ```
 git clone https://github.com/cs-eliseev/helpers-word.git
-// ```
+```
 
 
 ## License
