@@ -29,6 +29,6 @@ Clone this repository locally:
 ```git clone https://github.com/cs-eliseev/helpers-word.git```
 
 
-##License
+## License
 
 See the [LICENSE.md](https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md) file for licensing details.
