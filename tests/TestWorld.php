@@ -32,4 +32,36 @@ class TestWorld extends TestCase
             ],
         ];
     }
+
+    /**
+     * @param string $date
+     * @param string $prefix
+     * @param string $expected
+     *
+     * @dataProvider providerConvertDateMonthToWord
+     */
+    public function testConvertDateMonthToWord(string $date, string $prefix, string $expected): void
+    {
+        $this->assertEquals(Word::convertDateMonthToWord($date, $prefix), $expected);
+    }
+
+    /**
+     * @return array
+     */
+    public function providerConvertDateMonthToWord(): array
+    {
+        return [
+            [
+                '2019-01-01',
+                ' ',
+                '01 января 2019',
+            ],
+
+            [
+                '05.05.2018',
+                '/',
+                '05/мая/2018',
+            ],
+        ];
+    }
 }
