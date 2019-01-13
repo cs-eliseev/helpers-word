@@ -63,6 +63,27 @@ Word::stringToUtf($text);
 // привет
 ```
 
+Set charset:
+```php
+$text = mb_convert_encoding('привет', 'KOI8-R');
+Word::stringToUtf($text, 'KOI8-R');
+// привет
+```
+
+*** Date Month to Word converter ***
+Example:
+```php
+Word::convertDateMonthToWord('2019-01-01');
+// 01 января 2019
+```
+
+Add delimiter to result:
+```php
+Word::convertDateMonthToWord('05.05.2018', '/');
+// 05/мая/2018
+```
+
+
 ## License
 
 See the [LICENSE.md](https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md) file for licensing details.
