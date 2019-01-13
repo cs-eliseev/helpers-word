@@ -70,7 +70,7 @@ Word::stringToUtf($text, 'KOI8-R');
 // привет
 ```
 
-**Date Month to Word converter**
+**Date month to word converter**
 Example:
 ```php
 Word::convertDateMonthToWord('2019-01-01');

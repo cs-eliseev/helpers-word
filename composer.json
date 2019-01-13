@@ -1,6 +1,7 @@
 {
     "name": "cse/helpers/word",
     "description": "The helpers allows you to modify string data. Inclination, transliterate, convert month date and convert number or amount to word - all this is available in this library.",
+    "keywords": ["transliterate", "inclination text by number", "date month to word converter", "word converter", "cse", "cs-eliseev", "framework", "basic", "library", "project"],
     "type": "library",
     "license": "MIT",
     "authors": [
