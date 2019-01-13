@@ -64,4 +64,50 @@ class TestWorld extends TestCase
             ],
         ];
     }
+
+    /**
+     * @param $number
+     * @param array $worlds
+     * @param string $prefix
+     * @param string $expected
+     *
+     * @dataProvider providerInclinationByNumber
+     */
+    public function testInclinationByNumber($number, array $worlds, string $prefix, string $expected): void
+    {
+        $this->assertEquals(Word::getInclinationByNumber($number, $worlds, $prefix), $expected);
+    }
+
+    /**
+     * @return array
+     */
+    public function providerInclinationByNumber(): array
+    {
+        return [
+            [
+                0,
+                ['%d котик', '%d котика', '%d котиков'],
+                '',
+                '0 котиков'
+            ],
+            [
+                '01',
+                ['был %d котик', 'было %d котика', 'было %d котиков'],
+                '',
+                'был 1 котик'
+            ],
+            [
+                '4',
+                ['котик', 'котика', 'котиков'],
+                '%d ',
+                '4 котика'
+            ],
+            [
+                10,
+                ['котик', 'котика', 'котиков'],
+                '',
+                'котиков'
+            ],
+        ];
+    }
 }
