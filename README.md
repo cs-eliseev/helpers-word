@@ -5,7 +5,7 @@ The helpers allows you to modify string data. Inclination, transliterate, conver
 
 Project repository: https://github.com/cs-eliseev/helpers-word
 
-===
+***
 
 ## Introduction
 
@@ -15,7 +15,7 @@ Despite using PHP as the main programming language for the Internet, its functio
 
 CSE HELPERS was created for the rapid development of web applications.
 
-*** CSE Helpers projec: ***
+**CSE Helpers projec:**
 * [Word CSE helpers](https://github.com/cs-eliseev/helpers-word)
 
 Below you will find some information on how to init library and perform common commands.
@@ -55,7 +55,7 @@ git clone https://github.com/cs-eliseev/helpers-word.git
 
 The class consists of static methods that are conveniently used in any project. See example [examples-word.php](https://github.com/cs-eliseev/helpers-word/blob/master/examples/examples-word.php).
 
-*** Convert string to utf-8 ***
+**Convert string to utf-8**
 Example default charset(CP1251):
 ```php
 $text = mb_convert_encoding('привет', 'CP1251');
@@ -70,7 +70,7 @@ Word::stringToUtf($text, 'KOI8-R');
 // привет
 ```
 
-*** Date Month to Word converter ***
+**Date Month to Word converter**
 Example:
 ```php
 Word::convertDateMonthToWord('2019-01-01');
@@ -83,7 +83,7 @@ Word::convertDateMonthToWord('05.05.2018', '/');
 // 05/мая/2018
 ```
 
-*** Inclination ***
+**Inclination**
 Example:
 ```php
 Word::getInclinationByNumber(10, ['котик', 'котика', 'котиков']);
@@ -107,6 +107,14 @@ Add text prefix:
    Word::getInclinationByNumber(4, ['котик', 'котика', 'котиков'], 'еще %d ');
 // еще 4 котика
 ```
+
+**Text transliterate**
+Example:
+```php
+Word::transliterate('12 пользователей online');
+// 12 polzovateley online
+```
+
 
 ## License
 
