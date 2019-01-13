@@ -51,6 +51,17 @@ git clone https://github.com/cs-eliseev/helpers-word.git
 
 [Download the latest release here](https://github.com/cs-eliseev/helpers-word/archive/master.zip).
 
+## Usage
+
+The class consists of static methods that are conveniently used in any project. See example [examples-word.php](https://github.com/cs-eliseev/helpers-word/blob/master/examples/examples-word.php).
+
+*** Convert string to utf-8 ***
+Example default charset(CP1251):
+```php
+$text = mb_convert_encoding('привет', 'CP1251');
+Word::stringToUtf($text);
+// привет
+```
 
 ## License
 
