@@ -83,6 +83,30 @@ Word::convertDateMonthToWord('05.05.2018', '/');
 // 05/мая/2018
 ```
 
+*** Inclination ***
+Example:
+```php
+Word::getInclinationByNumber(10, ['котик', 'котика', 'котиков']);
+// котиков
+```
+
+Add number:
+```php
+Word::getInclinationByNumber(0, ['%d котик', '%d котика', '%d котиков']);
+// 0 котиков
+```
+
+Add string number to text:
+```php
+Word::getInclinationByNumber('01', ['был %d котик', 'было %d котика', 'было %d котиков']);
+// был 1 котик
+```
+
+Add text prefix:
+```php
+   Word::getInclinationByNumber(4, ['котик', 'котика', 'котиков'], 'еще %d ');
+// еще 4 котика
+```
 
 ## License
 
