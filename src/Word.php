@@ -13,6 +13,8 @@ class Word
 {
     const DEFAULT_CHARSET = 'UTF-8';
 
+    const INCLINATION_MAP = [2, 0, 1, 1, 1, 2];
+
     const DICTIONARY_MONTH_LIST = [
         '01' => 'января',
         '02' => 'февраля',
@@ -54,5 +56,23 @@ class Word
         list($year, $month, $day) = explode('-', date('Y-m-d', strtotime($date)));
 
         return $day . $delimiter . self::DICTIONARY_MONTH_LIST[$month] . $delimiter . $year;
+    }
+
+    /**
+     * Inclination by number (Russia map)
+     *
+     * @param $number
+     * @param array $worlds
+     * @param string $prefix
+     * @param array $map
+     * @return string
+     */
+    public static function getInclinationByNumber($number, array $worlds, string $prefix = '', array $map = self::INCLINATION_MAP): string
+    {
+        $number = (int) $number;
+        return sprintf(
+            $prefix . $worlds[($number % 100 > 4 && $number % 100 < 20) ? 2 : $map[min($number % 10, 5)]],
+            $number
+        );
     }
 }
