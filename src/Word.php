@@ -145,7 +145,7 @@ class Word
     }
 
     /**
-     * Text transliterate by dictionary (Rus dictionary)
+     * Text transliterate by dictionary (Russia dictionary)
      *
      * @param $text
      * @param array $dictionary

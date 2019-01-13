@@ -110,4 +110,36 @@ class TestWorld extends TestCase
             ],
         ];
     }
+
+    /**
+     * @param $text
+     * @param string $expected
+     *
+     * @dataProvider providerTransliterate
+     */
+    public function testTransliterate($text, string $expected): void
+    {
+        $this->assertEquals(Word::transliterate($text), $expected);
+    }
+
+    /**
+     * @return array
+     */
+    public function providerTransliterate(): array
+    {
+        return [
+            [
+                1230,
+                '1230'
+            ],
+            [
+                'тест',
+                'test',
+            ],
+            [
+                'очень длинный текст 1',
+                'ochen dlinnyy tekst 1'
+            ],
+        ];
+    }
 }
