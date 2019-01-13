@@ -30,3 +30,8 @@ echo 'inclination result: ' . Word::getInclinationByNumber('4', ['котик', '
 // get text & prefix. 6 => еще больше котиков
 echo 'inclination result: ' . Word::getInclinationByNumber(6, ['котик', 'котика', 'котиков'], 'еще больше ') . PHP_EOL;
 echo PHP_EOL;
+
+// Example: transliterate
+// 12 пользователей online => 12 polzovateley online
+echo 'transliterate result: ' . Word::transliterate('12 пользователей online') . PHP_EOL;
+echo PHP_EOL;
