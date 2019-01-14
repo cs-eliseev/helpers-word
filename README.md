@@ -28,14 +28,14 @@ You can find the most recent version of this project [here](https://github.com/c
 
 Execute the following command to get the latest version of the package:
 ```
-composer require cse/helpers/word
+composer require cse/helpers-word
 ```
 
 Or file composer.json should include the following contents:
 ```
 {
     "require": {
-        "cse/helpers/word": "*"
+        "cse/helpers-word": "*"
     }
 }
 ```
