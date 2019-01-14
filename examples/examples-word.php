@@ -44,3 +44,23 @@ var_dump(Word::convertUnsignedIntNumberToWord('1001'));
 // inclination: 2002 => 'две тысячи двe'
 var_dump(Word::convertUnsignedIntNumberToWord(2002, 0));
 echo PHP_EOL;
+
+// Example: convert amount to word
+// int & zero: 0 => ноль рублей 0 копеек
+var_dump(Word::convertAmountToWord(0));
+// string & thousand & cents tens: 1001.1 => одна тысяча один рубль 10 копеек
+var_dump(Word::convertAmountToWord('1001.1'));
+// tens & cents ones: 2012.01 => две тысячи двенадцать рублей 01 копейка
+var_dump(Word::convertAmountToWord(2012.01));
+// cents tens to word: 6543.2 => шесть тысяч пятьсот сорок три рубля двадцать копеек
+var_dump(Word::convertAmountToWord(6543.2, true, true));
+// tens thousand & cents ones to word: 87654.02 => восемьдесят семь тысяч шестьсот пятьдесят четыре рубля две копейки
+var_dump(Word::convertAmountToWord(87654.02, true, true));
+// millions & zero cents to word: 1098765.0 => один миллион девяносто восемь тысяч семьсот шестьдесят пять рублей ноль копеек
+var_dump(Word::convertAmountToWord(1098765.0, true, true));
+// ignore zero cents: 0.30 => ноль рублей тридцать копеек
+var_dump(Word::convertAmountToWord('0.30', false, true));
+// int & ignore zero cents: 0.30 => ноль рублей
+var_dump(Word::convertAmountToWord(0.0, false, true));
+// string & ignore zero cents: 0.30 => ноль рублей
+var_dump(Word::convertAmountToWord('0.00', false, true));
