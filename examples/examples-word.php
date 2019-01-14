@@ -8,7 +8,7 @@ use cse\helpers\Word;
 $charset = 'CP1251';
 $text = mb_convert_encoding('привет', $charset);
 var_dump('encode text: "' . $text . '" charset: ' .  $charset);
-var_dump('decode text: "' . Word::stringToUtf($text) . '" charset: ' . Word::DEFAULT_CHARSET . PHP_EOL);
+var_dump('decode text: "' . Word::stringToUtf($text) . '" charset: ' . Word::DEFAULT_CHARSET);
 echo PHP_EOL;
 
 // Example: date month convert
@@ -20,18 +20,18 @@ echo PHP_EOL;
 
 // Example: inclination
 // get text. 10 => котиков
-echo 'inclination result: ' . Word::getInclinationByNumber(10, ['котик', 'котика', 'котиков']) . PHP_EOL;
+var_dump('inclination result: ' . Word::getInclinationByNumber(10, ['котик', 'котика', 'котиков']));
 // get text & number. 0 => 0 котиков
-echo 'inclination result: ' . Word::getInclinationByNumber(0, ['%d котик', '%d котика', '%d котиков']) . PHP_EOL;
+var_dump('inclination result: ' . Word::getInclinationByNumber(0, ['%d котик', '%d котика', '%d котиков']));
 // get push number to text. 01 => был 1 котик
-echo 'inclination result: ' . Word::getInclinationByNumber('01', ['был %d котик', 'было %d котика', 'было %d котиков']) . PHP_EOL;
+var_dump('inclination result: ' . Word::getInclinationByNumber('01', ['был %d котик', 'было %d котика', 'было %d котиков']));
 // get text & number by prefix. 4 => 4 котика
-echo 'inclination result: ' . Word::getInclinationByNumber('4', ['котик', 'котика', 'котиков'], '%d ') . PHP_EOL;
+var_dump('inclination result: ' . Word::getInclinationByNumber('4', ['котик', 'котика', 'котиков'], '%d '));
 // get text & prefix. 6 => еще больше котиков
-echo 'inclination result: ' . Word::getInclinationByNumber(6, ['котик', 'котика', 'котиков'], 'еще больше ') . PHP_EOL;
+var_dump('inclination result: ' . Word::getInclinationByNumber(6, ['котик', 'котика', 'котиков'], 'еще больше '));
 echo PHP_EOL;
 
 // Example: transliterate
 // 12 пользователей online => 12 polzovateley online
-echo 'transliterate result: ' . Word::transliterate('12 пользователей online') . PHP_EOL;
+var_dump('transliterate result: ' . Word::transliterate('12 пользователей online'));
 echo PHP_EOL;
