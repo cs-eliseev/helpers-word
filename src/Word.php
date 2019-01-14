@@ -98,6 +98,59 @@ class Word
         'Я' => 'Ya'
     ];
 
+    const DICTIONARY_NUMBER_TO_WORD = [
+        -2 => 'две',
+        -1 => 'одна',
+        0 => 'ноль',
+        1 => 'один',
+        2 => 'два',
+        3 => 'три',
+        4 => 'четыре',
+        5 => 'пять',
+        6 => 'шесть',
+        7 => 'семь',
+        8 => 'восемь',
+        9 => 'девять',
+        10 => 'десять',
+        11 => 'одиннадцать',
+        12 => 'двенадцать',
+        13 => 'тринадцать',
+        14 => 'четырнадцать',
+        15 => 'пятнадцать',
+        16 => 'шестнадцать',
+        17 => 'семнадцать',
+        18 => 'восемнадцать',
+        19 => 'девятнадцать',
+        20 => 'двадцать',
+        30 => 'тридцать',
+        40 => 'сорок',
+        50 => 'пятьдесят',
+        60 => 'шестьдесят',
+        70 => 'семьдесят',
+        80 => 'восемьдесят',
+        90 => 'девяносто',
+        100 => 'сто',
+        200 => 'двести',
+        300 => 'триста',
+        400 => 'четыреста',
+        500 => 'пятьсот',
+        600 => 'шестьсот',
+        700 => 'семьсот',
+        800 => 'восемьсот',
+        900 => 'девятьсот'
+    ];
+
+    const DICTIONARY_PART_GROUP = [
+        ['тысяча', 'тысячи', 'тысяч'],
+        ['миллион', 'миллиона', 'миллионов'],
+        ['миллиард', 'миллиарда', 'миллиардов'],
+        ['триллион', 'триллиона', 'триллионов'],
+        ['квадриллион', 'квадриллиона', 'квадриллионов'],
+        ['квинтиллион', 'квинтиллиона', 'квинтиллионов'],
+        ['секстиллион', 'секстиллиона', 'секстиллионов'],
+        // next
+    ];
+
     /**
      * Convert string charset to UTF-8
      *
@@ -154,5 +207,80 @@ class Word
     public static function transliterate($text, array $dictionary = self::DICTIONARY_RUS_TO_EN): string
     {
         return empty($text) ? '' : str_replace(array_keys($dictionary), array_values($dictionary), $text);
+    }
+
+    /**
+     * Converter unsigned integer number to word (Russia dictionary)
+     *
+     * @param $number
+     * @param int|null $groupIndex
+     * @return string
+     */
+    public static function convertUnsignedIntNumberToWord($number, ?int $groupIndex = null): string
+    {
+        $result = [];
+
+        // zero result
+        $number = is_int($number) ? (int) $number : $number;
+        if (empty((int) $number)) return self::DICTIONARY_NUMBER_TO_WORD[0];
+
+        // add zero (1234 => 001234, 1 => 001)
+        $number = strval($number);
+        $number = str_pad($number, (int) (ceil(strlen($number) / 3) * 3), '0', STR_PAD_LEFT);
+
+        // split 3
+        $splits = array_reverse(str_split($number, 3));
+
+        foreach ($splits as $key => $group) {
+
+            // convert number to word
+            if ($group > 0 || ($key == 0 && $group == 0)) {
+                $digits = [];
+
+                // 100
+                if ($group > 99) $digits[] = floor($group / 100) * 100;
+
+                // 99
+                if ($tens = $group % 100) {
+                    $ones = $group % 10;
+
+                    $sign_key = ($key == 1 || (is_int($groupIndex) && $groupIndex == $key)) &&
+                    ($tens != 11 && $tens != 12 && $ones > 0 && $ones < 3)
+                        ? -1 : 1;
+
+                    if ($tens < 20) {
+                        $digits[] = $sign_key * $tens;
+                    } else {
+
+                        $digits[] = floor($tens / 10) * 10;
+                        if (!empty($ones)) $digits[] = $sign_key * $ones;
+                    }
+                }
+
+                // last numbers
+                $last = abs(end($digits));
+
+                // number to word
+                foreach ($digits as $j => $digit) {
+                    $digits[$j] = self::DICTIONARY_NUMBER_TO_WORD[$digit];
+                }
+
+                // add part group
+                if (!empty($key) && array_key_exists($key-1, self::DICTIONARY_PART_GROUP)) {
+                    $digits[] = self::getInclinationByNumber($last, self::DICTIONARY_PART_GROUP[$key-1]);
+                }
+
+                // add convert part number
+                if (!empty($digits)) array_unshift($result, implode(' ', $digits));
+
+                // clear vars
+                unset($j, $digit, $digits, $last, $mod1, $mod2, $flag);
+            }
+        }
+        // clear vars
+        unset($group, $key, $splits, $number);
+
+        // join array
+        return implode(' ', $result);
     }
 }
