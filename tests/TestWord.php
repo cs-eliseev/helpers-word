@@ -142,4 +142,50 @@ class TestWord extends TestCase
             ],
         ];
     }
+
+    /**
+     * @param $number
+     * @param int|null $groupIndex
+     * @param string $expected
+     *
+     * @dataProvider providerConvertUnsignedIntNumberToWord
+     */
+    public function testConvertUnsignedIntNumberToWord($number, ?int $groupIndex, string $expected): void
+    {
+        $this->assertEquals(Word::convertUnsignedIntNumberToWord($number, $groupIndex), $expected);
+    }
+
+    /**
+     * @return array
+     */
+    public function providerConvertUnsignedIntNumberToWord(): array
+    {
+        return [
+            [
+                0,
+                null,
+                'ноль'
+            ],
+            [
+                '2002',
+                null,
+                'две тысячи два'
+            ],
+            [
+                2002,
+                0,
+                'две тысячи две'
+            ],
+            [
+                987654321098765432,
+                null,
+                'девятьсот восемьдесят семь квадриллионов шестьсот пятьдесят четыре триллиона триста двадцать один миллиард девяносто восемь миллионов семьсот шестьдесят пять тысяч четыреста тридцать два'
+            ],
+            [
+                '9876543210987654321',
+                null,
+                'девять квинтиллионов восемьсот семьдесят шесть квадриллионов пятьсот сорок три триллиона двести десять миллиардов девятьсот восемьдесят семь миллионов шестьсот пятьдесят четыре тысячи триста двадцать один'
+            ],
+        ];
+    }
 }
