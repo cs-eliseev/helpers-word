@@ -3,7 +3,7 @@
 use cse\helpers\Word;
 use PHPUnit\Framework\TestCase;
 
-class TestWorld extends TestCase
+class TestWord extends TestCase
 {
     /**
      * @param string $string
@@ -13,7 +13,7 @@ class TestWorld extends TestCase
      */
     public function testConvertStringCarsetToUtf(string $string, string $charset): void
     {
-        $this->assertEquals(Word::stringToUtf(mb_convert_encoding($string, $charset), $charset), $string);
+        $this->assertEquals($string, Word::stringToUtf(mb_convert_encoding($string, $charset), $charset));
     }
 
     /**
@@ -42,7 +42,7 @@ class TestWorld extends TestCase
      */
     public function testConvertDateMonthToWord(string $date, string $prefix, string $expected): void
     {
-        $this->assertEquals(Word::convertDateMonthToWord($date, $prefix), $expected);
+        $this->assertEquals($expected, Word::convertDateMonthToWord($date, $prefix));
     }
 
     /**
@@ -75,7 +75,7 @@ class TestWorld extends TestCase
      */
     public function testInclinationByNumber($number, array $worlds, string $prefix, string $expected): void
     {
-        $this->assertEquals(Word::getInclinationByNumber($number, $worlds, $prefix), $expected);
+        $this->assertEquals($expected, Word::getInclinationByNumber($number, $worlds, $prefix));
     }
 
     /**
@@ -119,7 +119,7 @@ class TestWorld extends TestCase
      */
     public function testTransliterate($text, string $expected): void
     {
-        $this->assertEquals(Word::transliterate($text), $expected);
+        $this->assertEquals($expected, Word::transliterate($text));
     }
 
     /**
