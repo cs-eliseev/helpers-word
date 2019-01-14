@@ -188,4 +188,74 @@ class TestWord extends TestCase
             ],
         ];
     }
+
+    /**
+     * @param $amount
+     * @param bool $isFractalNullView
+     * @param bool $isFullView
+     * @param string $expected
+     *
+     * @dataProvider providerConvertAmountToWord
+     */
+    public function testConvertAmountToWord($amount, bool $isFractalNullView, bool $isFullView, string $expected): void
+    {
+        $this->assertEquals(Word::convertAmountToWord($amount, $isFractalNullView, $isFullView), $expected);
+    }
+
+    /**
+     * @return array
+     */
+    public function providerConvertAmountToWord(): array
+    {
+        return [
+            [
+                1231450.1,
+                true,
+                false,
+                'один миллион двести тридцать одна тысяча четыреста пятьдесят рублей 10 копеек'
+            ],
+            [
+                '-11672891.02',
+                true,
+                false,
+                'минус одиннадцать миллионов шестьсот семьдесят две тысячи восемьсот девяносто один рубль 02 копейки'
+            ],
+            [
+                -22011113.01,
+                true,
+                true,
+                'минус двадцать два миллиона одиннадцать тысяч сто тринадцать рублей одна копейка'
+            ],
+            [
+                '4330110210.12',
+                true,
+                true,
+                'четыре миллиарда триста тридцать миллионов сто десять тысяч двести десять рублей двенадцать копеек'
+            ],
+            [
+                0,
+                true,
+                true,
+                'ноль рублей ноль копеек'
+            ],
+            [
+                '0.00',
+                true,
+                true,
+                'ноль рублей ноль копеек'
+            ],
+            [
+                0,
+                false,
+                true,
+                'ноль рублей'
+            ],
+            [
+                '0.00',
+                false,
+                true,
+                'ноль рублей'
+            ],
+        ];
+    }
 }
