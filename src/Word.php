@@ -15,6 +15,8 @@ class Word
 
     const INCLINATION_MAP = [2, 0, 1, 1, 1, 2];
 
+    const NEGATIVE_SIGN = 'минус';
+
     const DICTIONARY_MONTH_LIST = [
         '01' => 'января',
         '02' => 'февраля',
@@ -151,6 +153,11 @@ class Word
         // next
     ];
 
+    const DICTIONARY_CURRENCY = [
+        ['рубль', 'рубля', 'рублей'],
+        ['копейка', 'копейки', 'копеек']
+    ];
+
     /**
      * Convert string charset to UTF-8
      *
@@ -282,5 +289,45 @@ class Word
 
         // join array
         return implode(' ', $result);
+    }
+
+    /**
+     * Converter amount to word (Russia dictionary)
+     *
+     * @param $amount
+     * @param bool $isFractalNullView
+     * @param bool $isFullView
+     * @return string
+     */
+    public static function convertAmountToWord($amount, bool $isFractalNullView = true, $isFullView = false): string
+    {
+        // check sign, convert abc
+        $amount = ($sign = $amount < 0) ? substr((string) $amount, 1) : (string) $amount;
+
+        // extend amount
+        preg_match('/(\d+)[.,\s]?(\d*)/', (string) $amount, $extend);
+        $number = empty($extend[1]) ? 0 : $extend[1];
+        $fraction = empty($extend[2]) ? 0 : $extend[2];
+
+        // get result number
+        $result = self::convertUnsignedIntNumberToWord($number)
+            . self::getInclinationByNumber(
+                $number,
+                self::DICTIONARY_CURRENCY[0],
+                ' '
+            );
+
+        // get result fraction
+        if ($isFractalNullView || !empty((int) $fraction)) {
+            if ($fraction[0] != 0 && $fraction < 10) $fraction .= '0';
+            $result .= ' ' . ($isFullView ? self::convertUnsignedIntNumberToWord($fraction, 0) : $fraction)
+                . self::getInclinationByNumber(
+                    (int) $fraction,
+                    self::DICTIONARY_CURRENCY[1],
+                    ' '
+                );
+        }
+
+        return ($sign ? self::NEGATIVE_SIGN . ' ' : '') . $result;
     }
 }
