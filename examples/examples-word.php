@@ -36,3 +36,11 @@ echo PHP_EOL;
 var_dump(Word::transliterate('12 пользователей online'));
 echo PHP_EOL;
 
+// Example: convert number to word
+// zero: 0 => 'ноль'
+var_dump(Word::convertUnsignedIntNumberToWord(0));
+// thousand: 1001 => 'одна тысяча один'
+var_dump(Word::convertUnsignedIntNumberToWord('1001'));
+// inclination: 2002 => 'две тысячи двe'
+var_dump(Word::convertUnsignedIntNumberToWord(2002, 0));
+echo PHP_EOL;
