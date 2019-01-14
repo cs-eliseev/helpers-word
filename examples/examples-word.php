@@ -13,25 +13,26 @@ echo PHP_EOL;
 
 // Example: date month convert
 // convert month. 2019-01-01 => 01 января 2019
-var_dump('date converter: ' . Word::convertDateMonthToWord('2019-01-01'));
+var_dump(Word::convertDateMonthToWord('2019-01-01'));
 // delimiter. 05.05.2018 => 05/мая/2018
-var_dump('date converter delimiter: ' . Word::convertDateMonthToWord('05.05.2018', '/'));
+var_dump(Word::convertDateMonthToWord('05.05.2018', '/'));
 echo PHP_EOL;
 
 // Example: inclination
 // get text. 10 => котиков
-var_dump('inclination result: ' . Word::getInclinationByNumber(10, ['котик', 'котика', 'котиков']));
+var_dump(Word::getInclinationByNumber(10, ['котик', 'котика', 'котиков']));
 // get text & number. 0 => 0 котиков
-var_dump('inclination result: ' . Word::getInclinationByNumber(0, ['%d котик', '%d котика', '%d котиков']));
+var_dump(Word::getInclinationByNumber(0, ['%d котик', '%d котика', '%d котиков']));
 // get push number to text. 01 => был 1 котик
-var_dump('inclination result: ' . Word::getInclinationByNumber('01', ['был %d котик', 'было %d котика', 'было %d котиков']));
+var_dump(Word::getInclinationByNumber('01', ['был %d котик', 'было %d котика', 'было %d котиков']));
 // get text & number by prefix. 4 => 4 котика
-var_dump('inclination result: ' . Word::getInclinationByNumber('4', ['котик', 'котика', 'котиков'], '%d '));
+var_dump(Word::getInclinationByNumber('4', ['котик', 'котика', 'котиков'], '%d '));
 // get text & prefix. 6 => еще больше котиков
-var_dump('inclination result: ' . Word::getInclinationByNumber(6, ['котик', 'котика', 'котиков'], 'еще больше '));
+var_dump(Word::getInclinationByNumber(6, ['котик', 'котика', 'котиков'], 'еще больше '));
 echo PHP_EOL;
 
 // Example: transliterate
 // 12 пользователей online => 12 polzovateley online
-var_dump('transliterate result: ' . Word::transliterate('12 пользователей online'));
+var_dump(Word::transliterate('12 пользователей online'));
 echo PHP_EOL;
+
