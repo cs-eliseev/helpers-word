@@ -4,6 +4,10 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'vendo
 
 use cse\helpers\Word;
 
+// Demo example
+var_dump(Word::getInclinationByNumber('21', ['котик', 'котика', 'котиков'], 'мурлычит ' . Word::convertUnsignedIntNumberToWord(21) . ' '));
+echo PHP_EOL;
+
 // Example: convert to UTF-8
 $charset = 'CP1251';
 $text = mb_convert_encoding('привет', $charset);
@@ -37,11 +41,11 @@ var_dump(Word::transliterate('12 пользователей online'));
 echo PHP_EOL;
 
 // Example: convert number to word
-// zero: 0 => 'ноль'
+// zero: 0 => ноль
 var_dump(Word::convertUnsignedIntNumberToWord(0));
-// thousand: 1001 => 'одна тысяча один'
+// thousand: 1001 => одна тысяча один
 var_dump(Word::convertUnsignedIntNumberToWord('1001'));
-// inclination: 2002 => 'две тысячи двe'
+// inclination: 2002 => две тысячи двe
 var_dump(Word::convertUnsignedIntNumberToWord(2002, 0));
 echo PHP_EOL;
 
