@@ -5,6 +5,16 @@ The helpers allows you to modify string data. Inclination, transliterate, conver
 
 Project repository: https://github.com/cs-eliseev/helpers-word
 
+```php
+$number = 21;
+Word::getInclinationByNumber(
+    $number,
+    ['котик', 'котика', 'котиков'],
+    'мурлычит ' . Word::convertUnsignedIntNumberToWord($number) . ' '
+);
+// мурлычит двадцать один котик
+```
+
 ***
 
 ## Introduction
@@ -119,6 +129,50 @@ Word::transliterate('12 пользователей online');
 // 12 polzovateley online
 ```
 
+
+**Convert number to word**
+
+Example:
+```php
+Word::convertUnsignedIntNumberToWord(0);
+// ноль
+Word::convertUnsignedIntNumberToWord('1001');
+// одна тысяча один
+```
+
+Change ones inclination:
+```php
+Word::convertUnsignedIntNumberToWord(2002, 0);
+// две тысячи двe
+```
+
+**Convert amount to word**
+
+Example:
+```php
+Word::convertAmountToWord(0);
+// ноль рублей 0 копеек
+```
+
+Cents example:
+```php
+Word::convertAmountToWord('1001.1');
+// одна тысяча один рубль 10 копеек
+Word::convertAmountToWord(2012.01);
+// две тысячи двенадцать рублей 01 копейка
+```
+
+Cents to word example:
+```php
+Word::convertAmountToWord(87654.02, true, true);
+// восемьдесят семь тысяч шестьсот пятьдесят четыре рубля две копейки
+```
+
+Ignore zero cents:
+```php
+Word::convertAmountToWord('1098765.00', false);
+// один миллион девяносто восемь тысяч семьсот шестьдесят пять рублей
+```
 
 ## License
 
