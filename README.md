@@ -27,6 +27,9 @@ CSE HELPERS was created for the rapid development of web applications.
 
 **CSE Helpers projec:**
 * [Word CSE helpers](https://github.com/cs-eliseev/helpers-word)
+* [Json CSE helpers](https://github.com/cs-eliseev/helpers-json)
+* [Cookie CSE helpers](https://github.com/cs-eliseev/helpers-cookie)
+* [Request CSE helpers](https://github.com/cs-eliseev/helpers-request)
 
 Below you will find some information on how to init library and perform common commands.
 
