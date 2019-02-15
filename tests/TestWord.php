@@ -258,4 +258,48 @@ class TestWord extends TestCase
             ],
         ];
     }
+
+    /**
+     * @param string $word
+     * @param bool $isCamelCase
+     * @param string $expired
+     *
+     * @dataProvider providerCamelCase
+     */
+    public function testCamelCase(string $word, bool $isCamelCase, string $expired): void
+    {
+        $this->assertEquals($expired, Word::camelCase($word, $isCamelCase));
+    }
+
+    /**
+     * @return array
+     */
+    public function providerCamelCase(): array
+    {
+        return [
+            [
+                'test-word',
+                true,
+                'TestWord',
+            ],
+
+            [
+                'TestWord',
+                false,
+                'test-word',
+            ],
+
+            [
+                'test',
+                true,
+                'Test',
+            ],
+
+            [
+                'test',
+                false,
+                'test',
+            ],
+        ];
+    }
 }
