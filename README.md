@@ -30,6 +30,8 @@ CSE HELPERS was created for the rapid development of web applications.
 * [Json CSE helpers](https://github.com/cs-eliseev/helpers-json)
 * [Cookie CSE helpers](https://github.com/cs-eliseev/helpers-cookie)
 * [Request CSE helpers](https://github.com/cs-eliseev/helpers-request)
+* [Session CSE helpers](https://github.com/cs-eliseev/helpers-session)
+* [Date CSE helpers](https://github.com/cs-eliseev/helpers-date)
 
 Below you will find some information on how to init library and perform common commands.
 
@@ -176,6 +178,7 @@ Ignore zero cents:
 Word::convertAmountToWord('1098765.00', false);
 // один миллион девяносто восемь тысяч семьсот шестьдесят пять рублей
 ```
+
 
 ## License
 
