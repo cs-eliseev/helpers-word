@@ -179,6 +179,20 @@ Word::convertAmountToWord('1098765.00', false);
 // один миллион девяносто восемь тысяч семьсот шестьдесят пять рублей
 ```
 
+**CamelCase converter**
+
+Example:
+```php
+Word::camelCase('example-word');
+// ExampleWord
+```
+
+Revert CamelCase:
+```php
+Word::camelCase('ExampleWord', true);
+// example-word
+```
+
 
 ## License
 
