@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace cse\helpers;
 
@@ -329,5 +329,24 @@ class Word
         }
 
         return ($sign ? self::NEGATIVE_SIGN . ' ' : '') . $result;
+    }
+
+    /**
+     * Convert word to CamelCase
+     *
+     * $isCamelCase = false | example-word => ExampleWord
+     * $isCamelCase = true | ExampleWord  => example-word
+     *
+     * @param string $word
+     * @param bool $isCamelCase
+     * @return string
+     */
+    public static function camelCase(string $word, bool $isCamelCase = false): string
+    {
+        if ($isCamelCase) {
+            return ltrim(strtolower(preg_replace('/(\p{Lu}\p{Lu}*(?=$|\p{Lu})|(\p{Lu}+))/', '-$1', $word)), '-');
+        } else {
+            return implode('', array_map('ucfirst', explode('-', strtolower($word))));
+        }
     }
 }
