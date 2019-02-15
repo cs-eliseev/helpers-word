@@ -68,3 +68,10 @@ var_dump(Word::convertAmountToWord('0.30', false, true));
 var_dump(Word::convertAmountToWord(0.0, false, true));
 // string & ignore zero cents: 0.30 => ноль рублей
 var_dump(Word::convertAmountToWord('0.00', false, true));
+
+// Example: CamelCase
+// to CamelCase: example-word => ExampleWord
+var_dump(Word::camelCase('example-word'));
+// revert CamelCase: ExampleWord => example-word
+var_dump(Word::camelCase('ExampleWord', true));
+echo PHP_EOL;
