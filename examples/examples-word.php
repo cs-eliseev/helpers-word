@@ -74,4 +74,6 @@ var_dump(Word::convertAmountToWord('0.00', false, true));
 var_dump(Word::camelCase('example-word'));
 // revert CamelCase: ExampleWord => example-word
 var_dump(Word::camelCase('ExampleWord', true));
+// change delimiter: example/word => ExampleWord
+var_dump(Word::camelCase('ExampleWord', true, '/'));
 echo PHP_EOL;
