@@ -262,13 +262,14 @@ class TestWord extends TestCase
     /**
      * @param string $word
      * @param bool $isCamelCase
+     * @param string $delimiter
      * @param string $expired
      *
      * @dataProvider providerCamelCase
      */
-    public function testCamelCase(string $word, bool $isCamelCase, string $expired): void
+    public function testCamelCase(string $word, bool $isCamelCase, string $delimiter,string $expired): void
     {
-        $this->assertEquals($expired, Word::camelCase($word, $isCamelCase));
+        $this->assertEquals($expired, Word::camelCase($word, $isCamelCase, $delimiter));
     }
 
     /**
@@ -280,24 +281,28 @@ class TestWord extends TestCase
             [
                 'test-word',
                 true,
+                '-',
                 'TestWord',
             ],
 
             [
                 'TestWord',
                 false,
-                'test-word',
+                '/',
+                'test/word',
             ],
 
             [
                 'test',
                 true,
+                '-',
                 'Test',
             ],
 
             [
                 'test',
                 false,
+                '-',
                 'test',
             ],
         ];
