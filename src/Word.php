@@ -339,14 +339,22 @@ class Word
      *
      * @param string $word
      * @param bool $isCamelCase
+     * @param string $delimiter
      * @return string
      */
-    public static function camelCase(string $word, bool $isCamelCase = false): string
+    public static function camelCase(string $word, bool $isCamelCase = false, string $delimiter = '-'): string
     {
         if ($isCamelCase) {
-            return ltrim(strtolower(preg_replace('/(\p{Lu}\p{Lu}*(?=$|\p{Lu})|(\p{Lu}+))/', '-$1', $word)), '-');
+            return implode('', array_map(
+                'ucfirst',
+                explode($delimiter, strtolower($word))
+            ));
         } else {
-            return implode('', array_map('ucfirst', explode('-', strtolower($word))));
+            return ltrim(strtolower(preg_replace(
+                '/(\p{Lu}\p{Lu}*(?=$|\p{Lu})|(\p{Lu}+))/',
+                $delimiter . '$1',
+                $word
+            )), $delimiter);
         }
     }
 }
