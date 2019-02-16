@@ -193,6 +193,12 @@ Word::camelCase('ExampleWord', true);
 // example-word
 ```
 
+Change delimiter:
+```php
+Word::camelCase('ExampleWord', true, '/');
+// example/word
+```
+
 
 ## License
 
