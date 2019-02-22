@@ -163,6 +163,7 @@ class Word
      *
      * @param string $string
      * @param string $charset
+     *
      * @return string
      */
     public static function stringToUtf(string $string, string $charset = 'CP1251'): string
@@ -173,11 +174,12 @@ class Word
     /**
      * Convert date month to word (Russia dictionary)
      *
+     * @example 2017-05-01 => 1 мая 2017
+     *
      * @param string $date
      * @param string $delimiter
-     * @return string
      *
-     * @example 2017-05-01 => 1 мая 2017
+     * @return string
      */
     public static function convertDateMonthToWord(string $date, string $delimiter = ' '): string
     {
@@ -193,6 +195,7 @@ class Word
      * @param array $worlds
      * @param string $prefix
      * @param array $map
+     *
      * @return string
      */
     public static function getInclinationByNumber($number, array $worlds, string $prefix = '', array $map = self::INCLINATION_MAP): string
@@ -209,6 +212,7 @@ class Word
      *
      * @param $text
      * @param array $dictionary
+     *
      * @return string
      */
     public static function transliterate($text, array $dictionary = self::DICTIONARY_RUS_TO_EN): string
@@ -221,6 +225,7 @@ class Word
      *
      * @param $number
      * @param int|null $groupIndex
+     *
      * @return string
      */
     public static function convertUnsignedIntNumberToWord($number, ?int $groupIndex = null): string
@@ -297,6 +302,7 @@ class Word
      * @param $amount
      * @param bool $isFractalNullView
      * @param bool $isFullView
+     *
      * @return string
      */
     public static function convertAmountToWord($amount, bool $isFractalNullView = true, $isFullView = false): string
@@ -334,12 +340,14 @@ class Word
     /**
      * Convert word to CamelCase
      *
+     * @example
      * $isCamelCase = false | example-word => ExampleWord
      * $isCamelCase = true | ExampleWord  => example-word
      *
      * @param string $word
      * @param bool $isCamelCase
      * @param string $delimiter
+     *
      * @return string
      */
     public static function camelCase(string $word, bool $isCamelCase = false, string $delimiter = '-'): string
