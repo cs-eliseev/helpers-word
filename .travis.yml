@@ -6,10 +6,12 @@ env:
   global:
     - CODECOV_TOKEN=
 
-php:
-  - 7.1
-  - 7.2
-  - 7.3
+matrix:
+  include:
+    - php: 7.1
+    - php: 7.2
+    - php: 7.3
+      env: PHPUNIT_COVERAGE_TEST=1
 
 before_script:
   - composer install
@@ -18,4 +20,4 @@ script:
   - phpunit
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -f report/coverage.xml -t $CODECOV_TOKEN
+  - if [[ $PHPUNIT_COVERAGE_TEST ]]; then bash <(curl -s https://codecov.io/bash) -f report/coverage.xml -t $CODECOV_TOKEN; fi
