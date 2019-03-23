@@ -1,16 +1,18 @@
 WORD CSE HELPERS
 =======
 
-<p align="center">
-<a href="https://travis-ci.org/cs-eliseev/helpers-word"><img src="https://travis-ci.org/cs-eliseev/helpers-word.svg?branch=master" /></a>
-<a href="https://packagist.org/packages/cse/helpers-word"><img src="https://poser.pugx.org/cse/helpers-word/v/stable" /></a>
-<a href="https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md"><img src="https://poser.pugx.org/cse/helpers-word/license" /></a>
-</p>
+[![Travis (.org)](https://img.shields.io/travis/cs-eliseev/helpers-word.svg?style=flat-square)](https://travis-ci.org/cs-eliseev/helpers-word)
+
+[![Packagist](https://img.shields.io/packagist/v/cse/helpers-word.svg?style=flat-square)](https://packagist.org/packages/cse/helpers-word)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.1-8892BF.svg?style=flat-square)](https://packagist.org/packages/cse/helpers-word)
+[![Packagist](https://img.shields.io/packagist/l/cse/helpers-word.svg?style=flat-square)](https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md)
+[![GitHub repo size](https://img.shields.io/github/repo-size/cs-eliseev/helpers-word.svg?style=flat-square)](https://github.com/cs-eliseev/helpers-word/archive/master.zip)
 
 The helpers allows you to modify string data. Inclination, transliterate, convert month date and convert number or amount to word - all this is available in this library.
 
 Project repository: https://github.com/cs-eliseev/helpers-word
 
+**DEMO**
 ```php
 $number = 21;
 Word::getInclinationByNumber(
@@ -237,6 +239,6 @@ phpunit --configuration PATH/TO/PROJECT/phpunit.xml
 
 The CSE HELPERS is open-sourced software licensed under the MIT license. Please see [License File](https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md) for more information.
 
----
+***
 
 > GitHub [@cs-eliseev](https://github.com/cs-eliseev)
