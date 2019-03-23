@@ -33,8 +33,5 @@
         <log type="coverage-clover"
              target="./report/coverage.xml"
         />
-        <log type="coverage-php"
-             target="/tmp/coverage_phpunit.cov"
-        />
     </logging>
 </phpunit>
