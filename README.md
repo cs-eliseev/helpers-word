@@ -1,6 +1,11 @@
 WORD CSE HELPERS
 =======
 
+<p align="center">
+<a href="https://packagist.org/packages/cse/helpers-word"><img src="https://poser.pugx.org/cse/helpers-word/v/stable" /></a>
+<a href="https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md"><img src="https://poser.pugx.org/cse/helpers-word/license" /></a>
+</p>
+
 The helpers allows you to modify string data. Inclination, transliterate, convert month date and convert number or amount to word - all this is available in this library.
 
 Project repository: https://github.com/cs-eliseev/helpers-word
