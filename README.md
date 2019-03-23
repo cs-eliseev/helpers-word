@@ -47,7 +47,7 @@ You can find the most recent version of this project [here](https://github.com/c
 ### Composer
 
 Execute the following command to get the latest version of the package:
-```shell
+```bash
 composer require cse/helpers-word
 ```
 
@@ -63,7 +63,7 @@ Or file composer.json should include the following contents:
 ### Git
 
 Clone this repository locally:
-```shell
+```bash
 git clone https://github.com/cs-eliseev/helpers-word.git
 ```
 
@@ -212,21 +212,25 @@ PHPUnit is used for unit testing. Unit tests ensure that class and methods does 
 General PHPUnit documentation can be found at https://phpunit.de/documentation.html.
 
 To run the PHPUnit unit tests, execute:
-```shell
+```bash
 phpunit PATH/TO/PROJECT/tests/
 ```
 
 If you want code coverage reports, use the following:
-```shell
+```bash
 phpunit --coverage-html ./report PATH/TO/PROJECT/tests/
 ```
 
 Used PHPUnit default config:
-```shell
+```bash
 phpunit --configuration PATH/TO/PROJECT/phpunit.xml
 ```
 
 
 ## License
 
-See the [LICENSE.md](https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md) file for licensing details.
+The CSE HELPERS is open-sourced software licensed under the MIT license. Please see [License File](https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md) for more information.
+
+---
+
+> GitHub [@cs-eliseev](https://github.com/cs-eliseev)
