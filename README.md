@@ -2,6 +2,7 @@ WORD CSE HELPERS
 =======
 
 <p align="center">
+<a href="https://travis-ci.org/cs-eliseev/helpers-word"><img src="https://travis-ci.org/cs-eliseev/helpers-word.svg?branch=master" /></a>
 <a href="https://packagist.org/packages/cse/helpers-word"><img src="https://poser.pugx.org/cse/helpers-word/v/stable" /></a>
 <a href="https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md"><img src="https://poser.pugx.org/cse/helpers-word/license" /></a>
 </p>
