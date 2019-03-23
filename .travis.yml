@@ -7,6 +7,10 @@ php:
 
 before_script:
   - composer install
+  - wget https://phar.phpunit.de/phpcov.phar && php phpcov.phar merge /tmp --clover coverage.xml
 
 script:
   - phpunit
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
