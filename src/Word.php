@@ -286,7 +286,7 @@ class Word
                 if (!empty($digits)) array_unshift($result, implode(' ', $digits));
 
                 // clear vars
-                unset($j, $digit, $digits, $last, $mod1, $mod2, $flag);
+                unset($j, $digit, $digits, $last);
             }
         }
         // clear vars
