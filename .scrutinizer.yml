@@ -7,12 +7,10 @@ before_commands:
   - 'composer install --prefer-source'
 
 filter:
-  excluded_paths: [ 'vendor/*', 'tests/*', 'examples/*' ]
+  excluded_paths: ['vendor/*', 'tests/*', 'examples/*']
 
 tools:
-  php_code_coverage:
-    enabled: false
-    test_command: 'phpunit'
+  php_code_coverage: false
 
   # Security Advisory Checker
   # https://scrutinizer-ci.com/docs/tools/php/security-advisory-checker/
@@ -29,25 +27,22 @@ tools:
   # https://scrutinizer-ci.com/docs/tools/php/code-sniffer/
   php_code_sniffer:
     enabled: true
-    command: 'phpcs'
     config:
-      standard: PSR2
+      standard: 'PSR2'
 
   # Copy/Paste Detector
   php_cpd:
     enabled: true
-    command: 'phpcpd'
 
   # PHP CS Fixer (http://http://cs.sensiolabs.org/).
   php_cs_fixer:
     enabled: true
     config:
-      level: psr2
+      level: 'psr2'
 
   # Analyzes the size and structure of a PHP project.
   php_loc:
     enabled: true
-    command: 'phploc'
     excluded_dirs:
       - 'tests'
       - 'vendor'
@@ -57,7 +52,6 @@ tools:
   # https://scrutinizer-ci.com/docs/tools/php/mess-detector/
   php_mess_detector:
     enabled: true
-    command: 'phpmd'
     config:
       rulesets:
         - codesize
@@ -74,7 +68,6 @@ tools:
   # https://scrutinizer-ci.com/docs/tools/php/pdepend/
   php_pdepend:
     enabled: true
-    command: 'pdepend'
     excluded_dirs:
       - 'tests'
       - 'vendor'
