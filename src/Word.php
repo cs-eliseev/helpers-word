@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace cse\helpers;
 
@@ -317,21 +317,21 @@ class Word
 
         // get result number
         $result = self::convertUnsignedIntNumberToWord($number)
-            . self::getInclinationByNumber(
-                $number,
-                self::DICTIONARY_CURRENCY[0],
-                ' '
-            );
+                . self::getInclinationByNumber(
+                    $number,
+                    self::DICTIONARY_CURRENCY[0],
+                    ' '
+                );
 
         // get result fraction
         if ($isFractalNullView || !empty((int) $fraction)) {
             if ($fraction[0] != 0 && $fraction < 10) $fraction .= '0';
             $result .= ' ' . ($isFullView ? self::convertUnsignedIntNumberToWord($fraction, 0) : $fraction)
-                . self::getInclinationByNumber(
-                    (int) $fraction,
-                    self::DICTIONARY_CURRENCY[1],
-                    ' '
-                );
+                     . self::getInclinationByNumber(
+                         (int) $fraction,
+                         self::DICTIONARY_CURRENCY[1],
+                         ' '
+                     );
         }
 
         return ($sign ? self::NEGATIVE_SIGN . ' ' : '') . $result;
