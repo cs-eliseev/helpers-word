@@ -1,92 +1,24 @@
-build:
-  environment:
-    php:
-      version: 7.3
-
-before_commands:
-  - 'composer install --prefer-source'
-
 filter:
-  excluded_paths: ['vendor/*', 'tests/*', 'examples/*']
+  excluded_paths:
+    - tests/
+    - examples/
+  dependency_paths:
+    - vendor/
 
-tools:
-  php_code_coverage: false
+checks:
+  php: true
 
-  # Security Advisory Checker
-  # https://scrutinizer-ci.com/docs/tools/php/security-advisory-checker/
-  sensiolabs_security_checker: true
-
-  # https://scrutinizer-ci.com/docs/tools/php/code-similarity-analyzer/
-  php_sim: true
-
-  # https://scrutinizer-ci.com/docs/tools/php/change-tracking-analyzer/
-  php_changetracking: true
-
-  php_hhvm: true
-
-  # https://scrutinizer-ci.com/docs/tools/php/code-sniffer/
-  php_code_sniffer:
-    enabled: true
-    config:
-      standard: 'PSR2'
-
-  # Copy/Paste Detector
-  php_cpd:
-    enabled: true
-
-  # PHP CS Fixer (http://http://cs.sensiolabs.org/).
-  php_cs_fixer:
-    enabled: true
-    config:
-      level: 'psr2'
-
-  # Analyzes the size and structure of a PHP project.
-  php_loc:
-    enabled: true
-    excluded_dirs:
-      - 'tests'
-      - 'vendor'
-      - 'examples'
-
-  # PHP Mess Detector (http://phpmd.org)
-  # https://scrutinizer-ci.com/docs/tools/php/mess-detector/
-  php_mess_detector:
-    enabled: true
-    config:
-      rulesets:
-        - codesize
-        - unusedcode
-        - naming
-        - design
-        - controversial
-      naming_rules:
-        short_variable: { minimum: 2 }
-    extensions:
-      - php
-
-  # Analyzes the size and structure of a PHP project
-  # https://scrutinizer-ci.com/docs/tools/php/pdepend/
-  php_pdepend:
-    enabled: true
-    excluded_dirs:
-      - 'tests'
-      - 'vendor'
-      - 'examples'
-
-  # Runs Scrutinizer's PHP Analyzer Tool
-  # https://scrutinizer-ci.com/docs/tools/php/php-analyzer/config_reference
-  php_analyzer:
-    enabled: true
-    extensions:
-      - php
-    config:
-      checkstyle:
-        enabled: true
-        naming:
-          enabled: true
-          property_name: ^[_a-zA-Z][a-zA-Z0-9_]*$ #Allow underscores & caps
-          method_name: ^(?:[_a-zA-Z]|__)[a-zA-Z0-9_]*$ #Allow underscores & caps
-          parameter_name: ^[a-z][a-zA-Z0-9_]*$ # Allow underscores
-          local_variable: ^[a-zA-Z][a-zA-Z0-9_]*$ #Allow underscores & caps
-          exception_name: ^[a-zA-Z][a-zA-Z0-9]*Exception$
-          isser_method_name: ^(?:[_a-zA-Z]|__)[a-zA-Z0-9]*$ #Allow underscores & caps
+build:
+  nodes:
+    analysis:
+      environment:
+        php:
+          version: 7.3
+      project_setup:
+        override: true
+      tests:
+        override:
+          - php-scrutinizer-run
+  dependencies:
+    override:
+    - composer install --ignore-platform-reqs --no-interaction
