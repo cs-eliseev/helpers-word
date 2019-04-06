@@ -1,3 +1,5 @@
+English | [Русский](https://github.com/cs-eliseev/helpers-word/blob/master/README.ru_RU.md)
+
 WORD CSE HELPERS
 =======
 
@@ -85,7 +87,7 @@ git clone https://github.com/cs-eliseev/helpers-word.git
 
 The class consists of static methods that are conveniently used in any project. See example [examples-word.php](https://github.com/cs-eliseev/helpers-word/blob/master/examples/examples-word.php).
 
-**Convert string to utf-8**
+**Convert string to UTF-8**
 
 Example default charset(CP1251):
 ```php
@@ -239,7 +241,7 @@ phpunit --configuration PATH/TO/PROJECT/phpunit.xml
 
 ## License
 
-The CSE HELPERS is open-sourced software licensed under the MIT license. Please see [License File](https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md) for more information.
+The CSE HELPERS WORD is open-source PHP library licensed under the MIT license. Please see [License File](https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md) for more information.
 
 ***
 
