@@ -248,7 +248,7 @@ Even voicing your suggestions for features is great. Anything to help is much ap
 
 ## License
 
-The CSE HELPERS WORD is open-source PHP library licensed under the MIT license. Please see [License File](https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md) for more information.
+The WORD CSE HELPERS is open-source PHP library licensed under the MIT license. Please see [License File](https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md) for more information.
 
 ***
 

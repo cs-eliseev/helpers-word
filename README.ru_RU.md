@@ -251,7 +251,7 @@ phpunit --configuration PATH/TO/PROJECT/phpunit.xml
 
 ## Лицензия
 
-CSE HELPERS WORD это PHP-библиотека с открытым исходным кодом распространяемая по лицензии MIT. Для получения более подробной информации, пожалуйста, ознакомьтесь с [лицензионным файлом](https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md).
+WORD CSE HELPERS это PHP-библиотека с открытым исходным кодом распространяемая по лицензии MIT. Для получения более подробной информации, пожалуйста, ознакомьтесь с [лицензионным файлом](https://github.com/cs-eliseev/helpers-word/blob/master/LICENSE.md).
 
 ***
 
