@@ -231,15 +231,14 @@ class Word
     public static function convertUnsignedIntNumberToWord($number, ?int $groupIndex = null): string
     {
         $result = [];
+        $number = is_double($number) ? number_format($number, 0, '', '') : $number;
 
         // zero result
-        $number = is_int($number) ? (int) $number : $number;
         if (empty((int) $number)) return self::DICTIONARY_NUMBER_TO_WORD[0];
 
         // add zero (1234 => 001234, 1 => 001)
         $number = strval($number);
         $number = str_pad($number, (int) (ceil(strlen($number) / 3) * 3), '0', STR_PAD_LEFT);
-
         // split 3
         $splits = array_reverse(str_split($number, 3));
 
